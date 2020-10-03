@@ -1,0 +1,101 @@
+---
+title: "Investigating the effect of Class on Surviving the Titanic"
+author: "Ryan Maguire, id=18464854"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: word_document
+---
+
+
+## Question of Interest 
+
+Was the socioeconomic Class of passengers on the Titanic a predictor of whether a passenger survived or not ?  
+Yes of course, wealthier people, had more power and money therefore their lives were valued more than the poor who resided in the lower classes and this is further proved by the data represented in this document.
+
+### Load the libraries needed.
+
+The libraries needed are 'tidyverse' and 'titanic'.  If you are running this code on your own pc you will have to install them,  if you are running this in a lab they are already installed.
+
+Load up the libraries as follows:   
+
+```{r}
+library(tidyverse) 
+library(titanic)
+
+```
+
+The data are contained in a package called 'titanic'. The dataset iteslf is called titanic_train.
+
+## Subjective Impressions
+
+
+The key variable of interest 'Survival' (representing whether a passenger survived or not) is coded as 0 and 1.  To make the analysis clearer to interpret create a new variable which recoded the 0 and 1 to No and Yes respectively.
+
+```{r}
+ passengers <- titanic_train %>% 
+ mutate(Survived = ifelse(Survived == 0, "No", "Yes"))
+
+```
+
+There are three levels of the (categorical) variable Pclass namely 1st, 2nd and 3rd (coded as 1,2,3).
+
+A table of the proportion of survivors by Class (with clearer labels) is as follows:
+
+
+Task: Create the table of summaries needed by inserting the relevant r chunk
+```{r}
+ passengers %>% select(Pclass, Survived) %>% table()
+```
+
+
+Task: Create the table of corresponding percentages by inserting the relevant r chunk
+```{r}
+  passengers %>%
+     group_by( Pclass, Survived) %>%
+     summarise (n = n()) %>%
+     mutate(freq = n / sum(n))
+```
+
+Task: add some text here to interpret the results from the tables you have just created.
+
+From the table above we can see that 1st class is the only class where more people survived than died, with over a 62% survival rate, while in second class this drops to a 47% survival rate and in 3rd class it drops to an abissmal 0.25% survival rate.This data further shows how your standing in life would have affected your survival chances aboard the Titanic.
+
+Time to create some barcharts.  Some of the code will be given, some you will have to copy from the example file given and adapt accoordingly.  Hint, look at the plots relating to gender and adapt them by replacing Gender with Class (i.e. Pclass variable).
+
+# Bar chart of survival overall
+
+Task: Create a bar chart of survival overall by inserting the relevant r chunk
+```{r}
+ggplot(passengers, aes(x = Survived)) +
+  geom_bar()
+```
+
+
+# Plot bar chart of survival by Class 
+
+
+Task: Create a stacked barchart of survival by Class by inserting the relevant r chunk.
+
+```{r}
+ggplot(data=passengers, aes(Pclass))+
+     geom_bar(aes(fill=Survived), position="fill") +
+     ylab("Percent")
+```
+
+
+Task: Once you have created the plot write your interpretation here based on these plots.
+
+The first plot clearly shows that the majority of people aboard the Titanic unfortunately lost their lives around 470 died vs around the 270 who survived, our second plot which plots the suvival among the classes shows that 3rd class has the lowest with 25% and 1 st class has the highest with around 62.5%, this disparity is to be expected due to the way these classes were treated aboard the titanic with 1st class passengers having the priority of the lifeboats.2nd class resides inbetween both of these with 50% survival rate which was to be expected.
+
+Bonus question.  How would you create a stacked bar chart of survival by Class and Gender ?  (Hint facet_grid() will be useful).
+
+Task: Create the faceted barchart by inserting the relevant r chunk.
+````{r}
+ggplot(data=passengers, aes(Pclass),(Sex))+
+geom_bar (aes(fill=Survived), position="fill") +
+facet_grid(~Sex)
+````
+# Conlclusion
+
+Task: Write a short conclusion of whether you think Class is a useful predictor of whether a person survived the titanic and the role Gender  plays in addition.  Knit the file as a Word document (using the Knit icon above).  
+
+Kint your markdown save the Word file and Turn it in on the course Blackboard page once the deadline date has been set.

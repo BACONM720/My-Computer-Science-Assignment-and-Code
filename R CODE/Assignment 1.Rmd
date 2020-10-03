@@ -1,0 +1,35 @@
+---
+title: "Assignment 1"
+author: "Ryan Maguire, id=18464854"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  word_document: default
+  html_document:
+    df_print: paged
+---
+I have created some data and have caculated some numerical and graphical summaries.
+
+Theses are the data:
+
+```{r create data and calculate mean}
+
+data1 <- c(10, 23,14,12,34,26,28,24,15)
+
+```
+```{r}
+mean(data1)
+```
+the summary statistics (min, max, Q1, median, and Q3) are:
+```{r}
+summary(data1, )
+```
+A boxplot would look like
+ 
+```{r}
+boxplot(data1)
+```
+and a histogram ....
+
+```{r}
+hist(data1)
+```
