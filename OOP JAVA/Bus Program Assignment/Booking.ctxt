@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Booking
+comment1.params=Trip\ nP
+comment1.target=Booking(Trips,\ int)
+comment2.params=
+comment2.target=Trips\ getTrip()
+comment3.params=
+comment3.target=int\ get_num_passengers()
+comment4.params=
+comment4.target=double\ getTotalCost()
+numComments=5

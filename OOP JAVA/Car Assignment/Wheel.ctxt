@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Wheel
+comment1.params=radius\ wheelName
+comment1.target=Wheel(double,\ java.lang.String)
+comment2.params=radius
+comment2.target=void\ setRadius(double)
+comment3.params=
+comment3.target=double\ getRadius()
+comment4.params=wheelName
+comment4.target=void\ setWheelName(java.lang.String)
+comment5.params=
+comment5.target=java.lang.String\ getWheelName()
+comment6.params=
+comment6.target=double\ turn()
+numComments=7

@@ -1,0 +1,1 @@
+Are you thinking of an Animal?:Is it a Mammal?:Is it a type of large cat?:Lion:X:X:Dog:X:X:Is it a bird, Maybe?:Crow:X:X:Is it slimey?:Snail:X:X:Snake:X:X:Ok, is it a Celebrity/person?:Is the Celebrity known for sports?:Cristiano Ronaldo:X:X:Brad Pitt:X:X:hmm, is it an item found in the house?:Toaster:X:X:Shovel:X:X:
